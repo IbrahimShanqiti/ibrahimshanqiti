@@ -1,201 +1,130 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ibrahim Shanqiti</title>
+  <meta name="description" content="CS student at UofT. I build things.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="grain"></div>
+  
+  <main class="container">
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-text">
+        <div class="badges">
+          <span class="badge">🏆 $100k International Scholar</span>
+          <span class="badge badge-alt">📋 Dean's List</span>
+        </div>
+        <h1>Ibrahim Shanqiti</h1>
+        <p class="tagline">CS + Political Science @ UofT</p>
+        <p class="hero-desc">
+          I build full-stack apps that solve real problems. Previously shipped code at 
+          <a href="https://plusgrade.com" target="_blank">Plusgrade</a>. Currently obsessed with 
+          algorithms, backend systems, and finding the best benches in Toronto.
+        </p>
+        <div class="hero-links">
+          <a href="mailto:ibrahim.shanqiti@gmail.com" class="link-btn">
+            <span class="link-icon">✉️</span> Email
+          </a>
+          <a href="https://github.com/ibrahimshanqiti" target="_blank" class="link-btn">
+            <span class="link-icon">→</span> GitHub
+          </a>
+          <a href="https://linkedin.com/in/ibrahimshanqiti" target="_blank" class="link-btn">
+            <span class="link-icon">→</span> LinkedIn
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="IMG_8187 2.png" alt="Ibrahim Shanqiti">
+      </div>
+    </header>
 
-<html>
-	<head>
+    <!-- Featured Projects -->
+    <section class="projects">
+      <h2 class="section-label">Featured Projects</h2>
+      
+      <a href="floorplan.html" class="project-card">
+        <div class="project-visual visual-floorplan">
+          <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Floor Plan Manager</h3>
+          <p>Restaurant sectioning tool with a custom algorithm</p>
+          <span class="project-arrow">View project →</span>
+        </div>
+      </a>
 
-		
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171611414-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+      <a href="benchspot.html" class="project-card">
+        <div class="project-visual visual-screenshot">
+          <img src="benchspot-screenshot.png" alt="Benchspot screenshot">
+        </div>
+        <div class="project-info">
+          <h3>Benchspot.xyz</h3>
+          <p>Community-driven bench discovery app</p>
+          <span class="project-arrow">View project →</span>
+        </div>
+      </a>
+    </section>
 
-  gtag('config', 'UA-171611414-1');
-</script>
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title> Ibrahim Shanqiti </title>
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body style="background-color: #f2f2f2;">
+    <!-- Experience -->
+    <section class="experience">
+      <h2 class="section-label">Experience</h2>
+      
+      <div class="exp-grid">
+        <div class="exp-card">
+          <div class="exp-header">
+            <span class="exp-company">Plusgrade</span>
+            <span class="exp-date">2024</span>
+          </div>
+          <p class="exp-role">Software Developer Intern</p>
+          <p class="exp-desc">Backend systems, Jira→Gitlab PR automation bot</p>
+        </div>
+        
+        <div class="exp-card">
+          <div class="exp-header">
+            <span class="exp-company">Plusgrade</span>
+            <span class="exp-date">2023</span>
+          </div>
+          <p class="exp-role">Technical Writer Intern</p>
+          <p class="exp-desc">Documentation centralization project</p>
+        </div>
+        
+        <div class="exp-card">
+          <div class="exp-header">
+            <span class="exp-company">Queen's Harbor</span>
+            <span class="exp-date">Now</span>
+          </div>
+          <p class="exp-role">Server</p>
+          <p class="exp-desc">Inspired the floor plan project</p>
+        </div>
+      </div>
+    </section>
 
-		<section>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-left">
+        <p>UofT '26 · Toronto</p>
+      </div>
+      <div class="footer-photo">
+        <img src="IMG_6836.png" alt="">
+      </div>
+      <div class="footer-right">
+        <a href="mailto:ibrahim.shanqiti@gmail.com">ibrahim.shanqiti@gmail.com</a>
+      </div>
+    </footer>
+  </main>
 
-		<!-- Header -->
-			<header id="header" class="alt">
-				<a href="#menu">Menu</a>
-			</header>
-
-		<!-- Nav -->
-			<nav id="menu">
-				<ul class="links">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="blog.html"> Blog </a></li>
-                    <li><a href="learnerportfolio.html"> DP Learner Portfolio </a></li>
-					<li><a href="moviebooks.html"> TV, Movie & Book Reviews </a></li>
-                    <li><a href="education.html"> Education </a></li>
-                    <li><a href="https://www.youtube.com/channel/UCVtaAzDEQn25KcjPt9JUxTw"> Youtube Channel </a></li>
-					<li><a href="CV.pdf"> Curriculum Vitae (Resume/CV) </a></li>
-
-				</ul>
-			</nav>
-
-
-		<!-- Banner -->
-			<section class="banner full">
-				<article>
-					<img src="Slide01.jpg" alt="" />
-					<div class="inner">
-						<header>
-							<p> Blogging </p>
-							<h2> Ibrahim Shanqiti </h2>
-						</header>
-					</div>
-				</article>
-				<article>
-					<img src="Slide02.jpg" alt="" />
-					<div class="inner">
-						<header>
-							<p> Programs </p>
-							<h2> Ibrahim Shanqiti </h2>
-						</header>
-					</div>
-				</article>
-				<article>
-					<img src="Slide03.JPG"  alt="" />
-					<div class="inner">
-						<header>
-							<p> Music, Art and Literature Portfolios </p>
-							<h2> Ibrahim Shanqiti </h2>
-						</header>
-					</div>
-				</article>
-				<article>
-					<img src="Slide04.JPG"  alt="" />
-					<div class="inner">
-						<header>
-							<p> Movie Reviews </p>
-							<h2> Ibrahim Shanqiti </h2>
-						</header>
-					</div>
-				</article>
-				<article>
-					<img src="Slide05.jpg"  alt="" />
-					<div class="inner">
-						<header>
-							<p> Other Work </p>
-							<h2> Ibrahim Shanqiti </h2>
-						</header>
-
-
-					</div>
-				</article>
-			</section>
-			<br>
-		<!-- One -->
-		<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-		<!-- <center> <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="ibrahimshanqiti"><a class="LI-simple-link" href='https://ae.linkedin.com/in/ibrahimshanqiti?trk=profile-badge'>Ibrahim Shanqiti</a></div> </center> -->
-<br>
-
-			<section id="one" class="wrapper style2">
-				<div class="inner">
-						<h2> Recent Posts: </h2>
-					<div class="grid-style">
-						
-						<div>
-							<div class="box">
-								<div class="image fit">
-									<img src="debate.jpg" alt="" />
-								</div>
-								<div class="content">
-									<header class="align-center">
-										<p> 7/7/2020 </p>
-										<h2> Why Debate is Useless </h2>
-									</header>
-									<p> An opinion column I wrote about how certain aspects of "Competitive Debate" leak into normal conversations, and often cause more harm than good.</p>
-									<footer class="align-center">
-										<a href="debate.html" class="button alt"> Read the Article</a>
-									</footer>
-								</div>
-							</div>
-						</div>
-
-				
-
-					</div>
-
-				</div>
-
-			</section>
-
-		<!-- Two -->
-			<section id="two" class="wrapper style3">
-				<div class="inner">
-					<header class="align-center">
-
-						<p> To live is the rarest thing in the world. Most people exist, that is all.</p>
-						<h2> Oscar Wilde </h2>
-					</header>
-				</div>
-			</section>
-
-		<!-- Three -->
-			<section id="three" class="wrapper style2">
-				<div class="inner">
-					<header class="align-center">
-						<p class="special"> Pictures from my favorite trip! </p>
-						<h2> Iceland 2019 </h2>
-					</header>
-					<div class="gallery">
-						<div>
-							<div class="image fit">
-								<a><img src="pic01.JPG" alt="" /></a>
-							</div>
-						</div>
-						<div>
-							<div class="image fit">
-								<a><img src="pic02.JPG" alt="" /></a>
-							</div>
-						</div>
-						<div>
-							<div class="image fit">
-								<a><img src="pic03.JPG" alt="" /></a>
-							</div>
-						</div>
-						<div>
-							<div class="image fit">
-								<a><img src="pic04.JPG" alt="" /></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="container">
-					<ul class="icons">
-						<li><a href="https://www.twitter.com/IbrahimShanqiti" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="https://www.facebook.com/IbrahimShanqiti" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="https://www.instagram.com/ibrahimshanqiti" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="mailto: ibrahim.shanqiti@gmail.com" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-					</ul>
-				</div>
-				<div class="copyright">
-					&copy; Ibrahim Shanqiti. All Rights Reserved - 2020.
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-		</section>
-
-	</body>
+  <script src="main.js"></script>
+</body>
 </html>

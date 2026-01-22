@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floor Plan Manager — Ibrahim Shanqiti</title>
+  <meta name="description" content="Restaurant sectioning tool with a custom algorithm">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="grain"></div>
+  
+  <main class="container">
+    <section class="project-page">
+      <a href="index.html" class="back-link">← Back home</a>
+      
+      <header class="project-hero">
+        <h1>Floor Plan Manager</h1>
+        <p class="tagline">Making restaurant section assignments actually fair</p>
+        
+        <div class="project-meta">
+          <div class="meta-item">
+            <span class="meta-label">Status</span>
+            <span class="meta-value">In Development</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Timeline</span>
+            <span class="meta-value">2024 — Present</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">Solo Developer</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="project-content">
+        <h2>The Problem</h2>
+        <p>
+          Dividing a restaurant floor into fair sections takes a lot longer than it should. 
+          Working at Queen's Harbor, I figured I could automate it.
+        </p>
+
+        <h2>The Algorithm</h2>
+        <p>
+          The core is a <strong>Seeded Region Growing algorithm</strong>. 
+          Three phases:
+        </p>
+        
+        <p><strong>1. Seed Selection</strong></p>
+        <p>
+          First seed is the table closest to the floor's centroid. Each subsequent seed is chosen 
+          using the <strong>maximin distance criterion</strong> — pick the table that maximizes 
+          its minimum distance to all existing seeds. This guarantees optimal spatial dispersion.
+          Additionally, prechosen adjacency constraints are respected, so tables that shouldn't be in the same section are not.
+        </p>
+
+        <p><strong>2. Region Growing</strong></p>
+        <p>
+          Iteratively expand sections. At each step, grow the section with the lowest current workload 
+          by adding an adjacent unassigned table. Workload is calculated as: 
+          <code>seats × 1.0 + priority × 0.5</code>. This naturally balances the distribution.
+        </p>
+
+        <p><strong>3. Border Refinement</strong></p>
+        <p>
+          After initial assignment, swap border tables between adjacent sections to minimize 
+          workload standard deviation. Uses BFS to verify swaps don't disconnect any section. 
+        </p>
+        <p><strong>4. Cutting Servers</strong></p>
+        <p>
+          If the restaurant isn't busy enough to justify having as many servers as there currently are and some servers 
+          are cut, the algorithm will simply assign their tables to the remaining servers, ensuring that
+          previous sections aren't disrupted.
+        </p>
+        <p>
+          Complexity: <code>O(K × T × N × D²)</code> where T = tables, N = servers, D = avg adjacency, K = refinement iterations. 
+          In practice, runs in <strong>&lt;100ms</strong> for typical restaurant layouts.
+        </p>
+
+        <h2>Tech Stack</h2>
+        <ul class="tech-list">
+          <li>Go</li>
+          <li>React</li>
+          <li>TypeScript</li>
+          <li>PostgreSQL</li>
+          <li>AWS ECS</li>
+          <li>Docker</li>
+          <li>GitHub Actions</li>
+        </ul>
+
+        <h2>Features</h2>
+        <ul class="feature-list">
+          <li>Drag-and-drop floor plan editor</li>
+          <li>Automatic section generation</li>
+          <li>Shift scheduling</li>
+          <li>Role-based access</li>
+          <li>Multi-location support</li>
+        </ul>
+
+        <h2>Server View</h2>
+        <p>
+          Servers can pull up the floor plan on their phones and see their assigned section. 
+        </p>
+
+        <h2>Working with Users</h2>
+        <p>
+          Ran regular demos with managers at Queen's Harbor throughout development. 
+          Gathered requirements by watching how they currently assign sections, 
+          asked what frustrated them, and iterated based on their feedback.
+        </p>
+        <p>
+          Early versions were too automated — managers wanted manual override options. 
+          Added drag-to-reassign after hearing that. Also simplified the UI after 
+          observing they only glance at it during busy rushes.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-left">
+        <p>Ibrahim Shanqiti</p>
+      </div>
+      <div class="footer-right">
+        <a href="mailto:ibrahim.shanqiti@gmail.com">ibrahim.shanqiti@gmail.com</a>
+      </div>
+    </footer>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>

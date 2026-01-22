@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benchspot — Ibrahim Shanqiti</title>
+  <meta name="description" content="Community-driven bench discovery app">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="grain"></div>
+  
+  <main class="container">
+    <section class="project-page">
+      <a href="index.html" class="back-link">← Back home</a>
+      
+      <header class="project-hero">
+        <h1>Benchspot.xyz</h1>
+        <p class="tagline">A community-driven bench discovery app</p>
+        
+        <div class="project-meta">
+          <div class="meta-item">
+            <span class="meta-label">Status</span>
+            <span class="meta-value"><a href="https://benchspot.xyz" target="_blank">Live →</a></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Timeline</span>
+            <span class="meta-value">2024 — Present</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">Solo Developer</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Screenshot gallery -->
+      <div class="project-gallery single">
+        <div class="gallery-item">
+          <img src="benchspot-screenshot.png" alt="Benchspot screenshot">
+        </div>
+      </div>
+
+      <div class="project-content">
+        <h2>The Idea</h2>
+        <p>
+          I wanted a way to share my favorite spots in Toronto with friends — not restaurants, 
+          just quiet places to sit and think. Benches turned out to be the perfect unit for this.
+        </p>
+
+        <h2>Technical Highlights</h2>
+        
+        <p><strong>Provisional bench system with spatial confirmation</strong></p>
+        <p>
+          Benches don't go straight to the database. They start as "provisional" and need 
+          confirmation before being promoted. The backend uses PostGIS <code>ST_DWithin</code> 
+          queries to find nearby submissions within a 2m radius, clusters them, and calculates 
+          the centroid when promoting to permanent status.
+        </p>
+
+        <p><strong>Direct-to-R2 uploads with presigned URLs</strong></p>
+        <p>
+          Instead of routing images through my server, I generate presigned S3-compatible URLs 
+          so browsers upload directly to Cloudflare R2. This keeps server bandwidth low and 
+          uploads fast.
+        </p>
+
+        <p><strong>Client-side HEIC conversion and image compression</strong></p>
+        <p>
+          iPhones shoot HEIC by default, which browsers can't display. The frontend converts 
+          HEIC → WebP using <code>heic2any</code> before upload. All images also get compressed 
+          client-side via canvas (1024px max, 70% quality) to keep storage costs down.
+        </p>
+
+        <p><strong>Deep linking for sharing</strong></p>
+        <p>
+          Each bench has a shareable URL (<code>?bench=id</code>). Opening a shared link flies 
+          the map to that bench and opens its popup automatically using Leaflet's <code>flyTo</code>.
+        </p>
+
+        <p><strong>PostgreSQL session store</strong></p>
+        <p>
+          Sessions are stored in Postgres via <code>connect-pg-simple</code> instead of memory, 
+          so users stay logged in across server restarts and horizontal scaling.
+        </p>
+
+        <h2>Tech Stack</h2>
+        <ul class="tech-list">
+          <li>Node.js</li>
+          <li>Express</li>
+          <li>PostgreSQL</li>
+          <li>PostGIS</li>
+          <li>Leaflet.js</li>
+          <li>Cloudflare R2</li>
+          <li>AWS SDK (S3)</li>
+          <li>Google OAuth</li>
+          <li>Passport.js</li>
+        </ul>
+
+        <h2>Features</h2>
+        <ul class="feature-list">
+          <li>Interactive map with geolocation</li>
+          <li>Photo uploads with HEIC support</li>
+          <li>5-star rating system with PostgreSQL upserts</li>
+          <li>User profiles with progress rings</li>
+          <li>Gamification (trophies at 10, 50, 100 benches)</li>
+          <li>Native share sheet integration</li>
+          <li>Deep linking to specific benches</li>
+        </ul>
+        
+        <p style="margin-top: 2rem;">
+          <a href="https://benchspot.xyz" target="_blank" class="link-btn" style="display: inline-flex;">
+            <span class="link-icon">🪑</span> Visit benchspot.xyz
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-left">
+        <p>Ibrahim Shanqiti</p>
+      </div>
+      <div class="footer-right">
+        <a href="mailto:ibrahim.shanqiti@gmail.com">ibrahim.shanqiti@gmail.com</a>
+      </div>
+    </footer>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
