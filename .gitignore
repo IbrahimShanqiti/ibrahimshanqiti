@@ -1,1 +1,10 @@
-.gitignore
+# OS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Local project folders
+benchspot/
+floorplan/
